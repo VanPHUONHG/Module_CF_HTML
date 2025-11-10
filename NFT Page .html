@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/styles/componnet/header.css" />
+    <link rel="stylesheet" href="./assets/styles/componnet/footer.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #000;
+        color: white;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+      }
+      .image-section {
+        position: relative;
+        width: 100%;
+        height: 60vh; /* Chiều cao hình ảnh cố định, có thể chỉnh */
+        overflow: hidden;
+      }
+      .container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+      .img-logo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      .img-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .content-section {
+        padding: 50px 40px;
+        background: #2b2b2b; /* Nền đen giống overlay cũ */
+        display: flex;
+        justify-content: center;
+      }
+      .content {
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 40px;
+      }
+      .left-content {
+        flex: 1;
+        max-width: 600px;
+      }
+      .title {
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 0 0 20px 0;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+        line-height: 1.1;
+      }
+      .mint-date {
+        font-size: 30px;
+        margin: 0 0 30px 0;
+        opacity: 0.5;
+      }
+      .creator {
+        .creator-icon {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 30px;
+        }
+      }
+      .creator-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .creator-info img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .creator-icon span {
+        font-size: 22px;
+        color: white;
+      }
+      h2 {
+        color: #858584;
+      }
+      .description-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        margin: 0 0 15px 0;
+        opacity: 0.9;
+      }
+      .description-text {
+        font-size: 22px;
+        line-height: 1.6;
+        margin: 0;
+        opacity: 0.9;
+      }
+      .right-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        min-width: 200px;
+      }
+      .auction-box {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: -40px;
+        text-align: center;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        width: 235px;
+        height: 220px;
+      }
+      .auction-label {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        margin: 0 0 15px 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .timer {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0 0 10px 0;
+        color: #fff;
+        font-family: "Courier New", monospace;
+      }
+      .timer-labels {
+        display: flex;
+        justify-content: space-around;
+        font-size: 0.7rem;
+        opacity: 0.6;
+        margin: 0;
+      }
+      .timer-labels span {
+        display: flex;
+        min-width: 75px;
+        justify-content: space-between;
+        font-size: 12px;
+      }
+      .place-bid {
+        background: linear-gradient(135deg, #8b5cf6, #a855f7);
+        color: white;
+        border: none;
+        padding: 12px 28px;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        margin-top: -20px;
+        align-self: center;
+      }
+      .place-bid:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(139, 92, 246, 0.6);
+      }
+      @media (max-width: 768px) {
+        .image-section {
+          height: 50vh;
+        }
+        .content-section {
+          padding: 30px 20px;
+        }
+        .content {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 30px;
+        }
+        .title {
+          font-size: 51px;
+        }
+        .right-content {
+          align-items: flex-start;
+          width: 100%;
+        }
+        .auction-box {
+          align-self: flex-start;
+        }
+        .place-bid {
+          align-self: stretch;
+          width: 100%;
+        }
+      }
+
+      .details-section {
+        background-color: #2b2b2b;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        padding: 50px 40px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .details-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        width: 100%;
+        gap: 60px;
+      }
+
+      .details,
+      .tags {
+        flex: 1;
+      }
+
+      .details h3,
+      .tags h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+        color: #858584;
+      }
+
+      .detail-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+        font-size: 22px;
+        color: #ccc;
+      }
+
+      .detail-item i {
+        font-size: 22px;
+      }
+
+      .tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .tag {
+        background-color: #3a3a3a;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+      }
+      .tag:hover {
+        background-color: #8b5cf6;
+        cursor: pointer;
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .details-container {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href=""><img src="./imgs/Storefront.png" alt="" /></a>
+        <a href="">NFT Marketplace</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Marketplace</a></li>
+          <li><a href="#">Rankings</a></li>
+          <li><a href="./ConnectWallet.html">Connect a wallet</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="image-section">
+        <div class="container">
+          <div class="img-logo">
+            <img
+              src="./imgs/Image PlaceHolder (7).png"
+              alt="The Orbitians NFT Artwork"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="content-section">
+        <div class="content">
+          <div class="left-content">
+            <h1 class="title">The Orbitians</h1>
+            <p class="mint-date">Minted on Sep 30, 2022</p>
+            <div class="creator">
+              <div class="creator-icon">
+                <h2>Created By</h2>
+                <div class="creator-info">
+                  <img src="./imgs/Avatar (4).png" alt="" />
+                  <span>Orbitian</span>
+                </div>
+                <h2>Description</h2>
+              </div>
+            </div>
+            <br />
+            <p class="description-text">
+              The Orbitians<br />
+              is a collection of 10,000 unique NFTs on the Ethereum
+              blockchain,<br /><br />
+              There are all sorts of beings in the NFT Universe. The most
+              advanced and friendly of the bunch are Orbitians.<br /><br />
+              They live in a metal space machines, high up in the sky and only
+              have one foot on Earth. <br />
+              These Orbitians are a peaceful race, but they have been at war
+              with a group of invaders for many generations. The invaders are
+              called Upside-Downs, because of their inverted bodies that live on
+              the ground, yet do not know any other way to be. Upside-Downs
+              believe that they will be able to win this war if they could only
+              get an eye into Orbitian territory, so they've taken to make human
+              beings their target.erritory, so they've taken to make human
+              beings their target.
+            </p>
+          </div>
+          <div class="right-content">
+            <div class="auction-box">
+              <p class="auction-label">Auction ends in</p>
+              <div class="timer">59:59:59</div>
+              <div class="timer-labels">
+                <span>Hours</span>
+                <span>Minutes</span>
+                <span>Seconds</span>
+              </div>
+            </div>
+            <button class="place-bid">Place Bid</button>
+          </div>
+        </div>
+      </div>
+      <section class="details-section">
+        <div class="details-container">
+          <div class="details">
+            <h3>Details</h3>
+            <div class="detail-item">
+              <i class="fa-solid fa-globe"></i>
+              <span>View on Etherscan</span>
+            </div>
+            <div class="detail-item">
+              <i class="fa-solid fa-globe"></i>
+              <span>View Original</span>
+            </div>
+          </div>
+
+          <div class="tags">
+            <h3>Tags</h3>
+            <div class="tags-list">
+              <span class="tag">ANIMATION</span>
+              <span class="tag">ILLUSTRATION</span>
+              <span class="tag">MOON</span>
+              <span class="tag">MOON</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="menu-footer">
+        <div class="item-footer1">
+          <div class="item">
+            <img src="./imgs/Storefront.png" alt="" />
+            <a href="">NFT Marketplace</a>
+          </div>
+          <div>
+            <p>NFT marketplace UI created with Anima for Figma.</p>
+            <p>Join our community</p>
+          </div>
+          <ul>
+            <li>
+              <a href="https://discord.com/invite/eQxkYTNxSp"
+                ><img src="./imgs/DiscordLogo.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCXqr0Ca-b73rU9zcpSBJ5cw"
+                ><img src="./imgs/YoutubeLogo.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/animaapp?lang=en"
+                ><img src="./imgs/TwitterLogo.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/animaapp/?hl=en"
+                ><img src="./imgs/InstagramLogo.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+        <div class="item-footer2">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Rankings</a></li>
+            <li><a href="#">Connect a wallet</a></li>
+          </ul>
+        </div>
+        <div class="item-footer3">
+          <h2>Join our weekly digest</h2>
+          <p>Get exclusive promotions & updates straight to your inbox.</p>
+          <form action="">
+            <input type="text" placeholder="Enter your email here" />
+            <button>Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="line"></div>
+      <p>Ⓒ NFT Market. Use this template freely.</p>
+    </footer>
+  </body>
+</html>
