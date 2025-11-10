@@ -1,0 +1,239 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  background-color: #111;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+/* start banner */
+.banner {
+  position: relative;
+  width: 100wh;
+  height: 370px;
+  background-color: #2b2b2b;
+}
+.banner > img:nth-child(1) {
+  width: 100%;
+  height: 320px;
+}
+.banner > img:nth-child(2) {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  left: 115px;
+  bottom: 0;
+}
+/* end banner */
+/* start card-infor */
+.card-infor {
+  width: 100wh;
+  padding: 40px 115px;
+  background-color: #2b2b2b;
+}
+.infor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  button:nth-child(1) {
+    width: 186px;
+    height: 60px;
+    padding-right: 50px;
+    padding-left: 50px;
+    gap: 12px;
+    border-radius: 20px;
+    background-color: #a259ff;
+    color: #fff;
+    border: 2px solid #a259ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  button:nth-child(2) {
+    width: 145px;
+    height: 60px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 20px;
+    border-width: 2px;
+    background-color: transparent;
+    border: 2px solid #a259ff;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.box-button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.infor > p {
+  font-weight: 600;
+  font-size: 51px;
+}
+
+.detail-infor {
+  width: 60%;
+  /* height: 74px; */
+  padding: 30px 89px 30px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+.detail > p:nth-child(1) {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 28px;
+}
+.detail > p:nth-child(2) {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+}
+.bio {
+  width: 510px;
+  padding: 30px 0px 30px 0px;
+}
+.bio > p:nth-child(1) {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 22px;
+  padding-bottom: 10px;
+  color: #858584;
+}
+.bio > p:nth-child(2) {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+}
+.card-links > p {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 22px;
+  color: #858584;
+  padding-bottom: 10px;
+}
+/* end card-infor */
+/* container */
+.container {
+  width: 100%;
+  height: auto;
+  border-top: 2px solid #3b3b3b;
+  border-bottom: 2px solid #2b2b2b;
+  background-color: #3b3b3b;
+}
+/* container-header */
+.container-header {
+  max-width: 100%;
+  max-height: 80px;
+  min-height: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: white;
+  padding: 10px 115px 0px 115px;
+  background-color: #2b2b2b;
+  justify-content: center;
+}
+.created {
+  align-items: center;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+
+  button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #3b3b3b;
+    color: #fff;
+    border: none;
+  }
+}
+.created > p {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+}
+.created:hover {
+  border-bottom: 4px solid #3b3b3b;
+  button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #858584;
+    color: #fff;
+    border: none;
+  }
+}
+
+/* end container-header */
+.cards {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 60px 115px 80px 115px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  justify-content: center;
+}
+.card-item {
+  background-color: #2b2b2b;
+  border-radius: 20px;
+  object-fit: cover;
+  color: white;
+}
+.card-item > img {
+  width: 100%;
+  height: 390px;
+  border-radius: 20px 20px 0 0;
+}
+.card-item > h3 {
+  width: 100%;
+  padding: 20px 30px 0px 30px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+}
+.avatar-item {
+  display: flex;
+  max-width: 100%;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 30px 25px 30px;
+}
+.avatar-item > img {
+  width: 24px;
+  height: 24px;
+}
+.price-item {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px 25px 30px;
+}
+@media screen and (max-width: 992px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 60px 77px 80px 77px;
+  }
+}
+
+/* Mobile lớn (2 cột) */
+@media screen and (max-width: 768px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
