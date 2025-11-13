@@ -157,6 +157,16 @@ body {
     border: none;
   }
 }
+button:hover img {
+  transform: translateX(50px);
+}
+button:hover p {
+  transform: translateX(30px);
+  opacity: 0;
+}
+button:hover {
+  box-shadow: 0px 0px 20px rgb(211, 21, 160);
+}
 .created > p {
   font-family: "Work Sans", sans-serif;
   font-weight: 600;
@@ -224,9 +234,12 @@ body {
   padding: 0px 30px 25px 30px;
 }
 @media screen and (max-width: 992px) {
+  .card-infor {
+    padding: 40px 30px;
+  }
   .cards {
     grid-template-columns: repeat(3, 1fr);
-    padding: 60px 77px 80px 77px;
+    padding: 60px 115px 80px 115px;
   }
 }
 
@@ -234,11 +247,13 @@ body {
 @media screen and (max-width: 768px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+    padding: 60px 77px 80px 77px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .cards {
     grid-template-columns: repeat(1, 1fr);
+    padding: 40px 30px;
   }
 }
