@@ -7,9 +7,9 @@ html,
 body {
   overflow-x: hidden;
   background-color: #2b2b2b;
-
   font-family: "Work Sans", sans-serif;
   color: #fff;
+  position: relative;
 }
 /* banner */
 .banner {
@@ -51,7 +51,7 @@ body {
 }
 
 .banner-item2 {
-  animation: spin 5s linear alternate infinite;
+  animation: spin 4s ease-in-out alternate infinite;
 
   width: 100%;
   grid-column: 2;
@@ -61,13 +61,13 @@ body {
 }
 @keyframes spin {
   0% {
-    transform: rotate(0deg) scale(1.2);
+    transform: rotate(0deg) scale(1.05);
   }
   50% {
-    transform: rotate(-5deg);
+    transform: rotate(-2deg) scale(1);
   }
   100% {
-    transform: rotate(5deg) scale(1.2);
+    transform: rotate(2deg) scale(1.05);
   }
 }
 .banner-img {
@@ -108,17 +108,36 @@ body {
     width: 224px;
     height: 60px;
     gap: 12px;
-    padding-right: 50px;
-    padding-left: 50px;
     border-radius: 20px;
     background-color: #a259ff;
     color: white;
     border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      font-family: "Work Sans", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+    img {
+      transition: all 0.3s ease;
+    }
+  }
+  button:hover img {
+    transform: translateX(50px);
+  }
+  button:hover p {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  button:hover {
+    box-shadow: 0px 0px 20px rgb(228, 186, 187);
   }
 
   .banner-small {
-    /* width: 510px;
-    height: 77px; */
     gap: 70px;
     border-radius: 20px;
     display: flex;
@@ -168,6 +187,7 @@ body {
   }
 }
 .trending-cards {
+  justify-content: center;
   width: 100%;
   padding: 0px 115px 80px 115px;
   display: grid;
@@ -182,7 +202,13 @@ body {
 .card-img-big {
   min-width: 100%;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 30px;
+  transition: all ease-in-out 0.5s;
+}
+.card-img-big:hover {
+  transform: scale(1.05);
+  border: 1px solid #a259ff;
+  box-shadow: 1px 1px 10px #a259ff;
 }
 .trending-card-small {
   width: 100%;
@@ -190,17 +216,31 @@ body {
   grid-template-columns: 1fr 1fr 1fr;
   padding-top: 15px;
   padding-bottom: 15px;
+  border-radius: 30px;
+
   gap: 15px;
   img {
     min-width: 100%;
     min-height: 100%;
+    transition: all ease 0.5s;
   }
+  .img-small {
+    transition: all ease 0.5s;
+    border-radius: 30px;
+  }
+  .img-small:hover {
+    transform: scale(1.2);
+    border: 1px solid #a259ff;
+    box-shadow: 1px 1px 10px #a259ff;
+  }
+
   .card-small {
     background-color: #a259ff;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all ease 0.5s;
     a {
       text-decoration: none;
       font-family: "Space Mono", monospace;
@@ -208,6 +248,11 @@ body {
       font-size: 22px;
       color: white;
     }
+  }
+  .card-small:hover {
+    transform: scale(1.2);
+    border: 1px solid #a259ff;
+    box-shadow: 1px 1px 10px #a259ff;
   }
 }
 .trending-name {
@@ -271,17 +316,38 @@ body {
   }
 }
 .creator-btn {
-  flex-direction: row-reverse;
-  padding: 0px 50px 0px 50px;
-  grid-area: creator-btn;
-  width: 247px;
+  width: 224px;
   height: 60px;
   gap: 12px;
-  margin: 31px;
   border-radius: 20px;
+  background-color: transparent;
   border: 2px solid #a259ff;
-  background-color: #2b2b2b;
-  color: #fff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 31px;
+  p {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  img {
+    transition: all 0.3s ease;
+  }
+}
+.creator-btn:hover {
+  border: 2px solid #a259ff;
+  background-color: #a259ff;
+  box-shadow: 0px 0px 10px rgb(193, 168, 168);
+}
+.creator-btn:hover img {
+  transform: translateX(60px);
+}
+.creator-btn:hover p {
+  transform: translateX(30px);
+  opacity: 0;
 }
 
 .creator-cards {
@@ -301,9 +367,15 @@ body {
   width: 100%;
   background-color: #3b3b3b;
   border-radius: 20px;
+  transition: all ease-in-out 0.5s;
   img {
     padding: 25px 45px;
   }
+}
+.creator-card:hover {
+  transform: scale(1.1);
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px #f7eaea;
 }
 .creator-card-name {
   display: flex;
@@ -351,7 +423,6 @@ body {
 
 .categories {
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -373,7 +444,7 @@ body {
   padding: 0px 115px 80px 115px;
 }
 .category {
-  width: 100%;
+  min-width: 100%;
   background-color: #3b3b3b;
   border-radius: 20px;
   display: flex;
@@ -389,6 +460,7 @@ body {
 }
 .category-avt {
   position: relative;
+
   img:nth-child(1) {
     width: 100%;
     filter: blur(4px);
@@ -398,12 +470,13 @@ body {
   }
 
   img:nth-child(2) {
+    width: 70%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 100px;
-    height: 100px;
+    width: 50%;
+    height: auto;
   }
 }
 .category-avt img:nth-child(1):hover {
@@ -429,7 +502,8 @@ body {
     "discover-title discover-btn "
     "discover-cards discover-cards";
   align-items: center;
-  border: 1px solid red;
+  justify-content: center;
+  padding: 80px 115px 60px 115px;
 }
 .discover-title {
   grid-area: discover-title;
@@ -438,9 +512,12 @@ body {
   justify-content: space-between;
   background-color: #2b2b2b;
   color: #fff;
-  padding: 80px 20px 60px 20px;
+  padding: 0px 115px 60px 115px;
 }
 .discover-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   grid-area: discover-btn;
   width: 187px;
   height: 60px;
@@ -449,7 +526,26 @@ body {
   border: 2px solid #a259ff;
   background-color: #2b2b2b;
   color: #fff;
-  margin-left: 800px;
+  margin-left: 500px;
+  img {
+    transition: all ease 0.3s;
+  }
+  p {
+    transition: all ease 0.3s;
+  }
+}
+.discover-btn:hover {
+  background-color: #e66cd6;
+}
+.discover-btn:hover img {
+  transform: translateX(30px);
+}
+.discover-btn:hover p {
+  transform: translateX(30px);
+  opacity: 0;
+}
+.discover-btn:hover {
+  box-shadow: 0px 0px 5px rgb(228, 186, 187);
 }
 .discover-title-small {
   p:nth-child(1) {
@@ -469,8 +565,8 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 15px;
-  padding: 0px 20px 80px 20px;
+  gap: 30px;
+  padding: 0px 115px 80px 115px;
 }
 .discover-card {
   width: 100%;
@@ -479,17 +575,724 @@ body {
   color: white;
   background-color: #3b3b3b;
   border-radius: 20px;
+  transition: all ease-in-out 0.3s;
+}
+.discover-card:hover {
+  transform: scale(1.2) translate(-20px, -10px);
+  box-shadow: 2px 2px 10px rgb(225, 165, 165);
 }
 .discover-card-name {
   padding: 20px 30px;
 }
-.discover-card-name > p {
+.discover-card-name > a {
   font-family: "Work Sans", sans-serif;
   font-weight: 600;
   font-size: 22px;
-  padding-bottom: 10px;
+  color: #fff;
+  text-decoration: none;
 }
 .discover-name {
   display: flex;
   gap: 10px;
+  padding-top: 5px;
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}
+.price-item {
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 30px 25px 30px;
+}
+.price-item > .highest {
+  p:nth-child(1) {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-size: 12px;
+    color: #858584;
+  }
+  p:nth-child(2) {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+  }
+}
+/* end discover */
+/* start magic */
+.magic {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background-color: #2b2b2b;
+}
+.magic > img {
+  width: 100%;
+  position: absolute;
+  height: 650px;
+  object-fit: cover;
+}
+.magic-cards {
+  display: grid;
+  grid-template-areas:
+    "magic-name btn-time"
+    "btn-nft btn-time";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 360px 115px 60px 115px;
+  z-index: 2;
+}
+.magic-name {
+  grid-area: magic-name;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.magic-name > p {
+  font-family: "Work Sans", sans-serif;
+  font-weight: 600;
+  font-size: 51px;
+  padding: 30px 0;
+}
+.btn-name {
+  width: 150px;
+  height: 44px;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 20px;
+  background-color: #3b3b3b;
+  img {
+    width: 24px;
+    height: 24px;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+.magic-color {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #a259ff00 0%, #a259ff 100%);
+  z-index: 1;
+}
+.btn-nft {
+  grid-area: btn-nft;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 60px;
+  background-color: #fff;
+  color: black;
+  border-radius: 20px;
+  border: none;
+  gap: 10px;
+  p {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all ease 0.3s;
+  }
+  img {
+    transition: all ease 0.3s;
+  }
+}
+.btn-nft:hover {
+  background-color: #e66cd6;
+}
+.btn-nft:hover img {
+  transform: translateX(40px);
+}
+.btn-nft:hover p {
+  transform: translateX(30px);
+  opacity: 0;
+}
+
+.btn-nft:hover {
+  box-shadow: 0px 0px 5px rgb(228, 186, 187);
+}
+.countdown-box {
+  background: #3b3b3b80;
+
+  padding: 30px 0px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.countdown-box p {
+  text-align: left;
+  padding-left: 100px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #e5e5e5;
+}
+
+.timer {
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 4px;
+}
+
+.labels {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #d1d1d1;
+}
+/* end magic */
+
+/* start work */
+.work {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2b2b2b;
+}
+.work-title {
+  width: 100%;
+  padding: 80px 115px 48px 115px;
+  p:nth-child(1) {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 38px;
+    padding-bottom: 10px;
+  }
+  p:nth-child(2) {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+  }
+}
+.work-cards {
+  height: auto;
+  width: 100%;
+  padding: 0px 115px 80px 115px;
+  display: grid;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3b3b3b;
+  border-radius: 20px;
+  img {
+    padding: 10px 20px;
+    width: 80%;
+  }
+}
+.card-name {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 30px 30px 30px;
+  p:nth-child(1) {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+  }
+  p:nth-child(2) {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+  }
+}
+/* end work */
+/* start join */
+.join {
+  width: 100%;
+  background-color: #2b2b2b;
+}
+.join-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 115px 80px 115px;
+}
+.join-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #3b3b3b;
+  border-radius: 20px;
+  img {
+    width: 100%;
+    padding: 60px 80px 60px 60px;
+  }
+}
+.join-card-name {
+  width: 100%;
+  padding: 79px 60px 79px 0px;
+  p:nth-child(1) {
+    width: 60%;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 38px;
+    line-height: 120%;
+    padding-bottom: 10px;
+  }
+  p:nth-child(2) {
+    width: 80%;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 2px;
+    line-height: 160%;
+    padding-bottom: 40px;
+  }
+}
+form {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+
+  background-color: #fff;
+  border-radius: 20px;
+  input {
+    width: 55%;
+    height: 60px;
+    border: none;
+    padding: 20px;
+    border-radius: 20px 0px 0px 20px;
+    outline: none;
+  }
+  button {
+    width: 45%;
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    background-color: #a259ff;
+    font-family: "Work Sans", sans-serif;
+  }
+}
+/* end join */
+#btnUp {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #a259ff;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Khi hiện */
+#btnUp.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media screen and (max-width: 992px) {
+  /* reponsie banner */
+  .banner-items {
+    width: 100%;
+    display: grid;
+    padding: 80px 115px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 30px;
+  }
+  .banner-item2 {
+    animation: spin 4s ease-in-out alternate infinite;
+    width: 100%;
+    grid-column: 2;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+  }
+  /* end reponsie banner */
+
+  .trending-title {
+    width: 100%;
+    padding: 40px 70px;
+    color: white;
+  }
+  .trending-cards {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 60px 77px 80px 77px;
+    justify-content: center;
+  }
+  .creator-title {
+    grid-area: creator-title;
+    width: 100%;
+    padding: 80px 0px 60px 70px;
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2b2b;
+    color: #fff;
+  }
+  creator-cards {
+    grid-area: creator-cards;
+    width: 100%;
+    padding: 0px 70px 80px 70px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+  }
+  .categories > p {
+    width: 100%;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 38px;
+    color: #fff;
+    padding: 40px 70px;
+  }
+  .categories-cate {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 30px;
+    padding: 40px 70px;
+  }
+}
+
+/* Mobile lớn (2 cột) */
+@media screen and (max-width: 768px) {
+  p {
+    font-size: 16px;
+  }
+  .trending-cards {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    .trending-card:nth-child(3) {
+      display: none;
+    }
+  }
+  .creator-cards {
+    grid-template-columns: 1fr 2fr;
+    padding: 10px 10px;
+
+    .creator-card {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+  .categories-cate {
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    padding: 10px 40px;
+  }
+  .category {
+    p {
+      width: 100%;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      color: white;
+      padding: 20px 30px 25px 30px;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* reponsie banner */
+  .banner-items {
+    justify-content: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr 0fr;
+    gap: 30px;
+  }
+  .banner-item1 {
+    height: auto;
+    width: 100%;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .banner-content {
+    p:nth-child(1) {
+      font-size: 28px;
+      width: 100%;
+    }
+    p:nth-child(2) {
+      font-size: 16px;
+      width: 100%;
+    }
+  }
+  .trending-title {
+    padding: 40px 30px;
+    p:nth-child(1) {
+      width: 100%;
+
+      font-size: 28px;
+    }
+    p:nth-child(2) {
+      font-size: 16px;
+    }
+  }
+  .banner-item2 {
+    width: 100%;
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .banner-item3 {
+    width: 100%;
+    grid-column: 1;
+    grid-row: 3;
+    button {
+      width: 100%;
+    }
+    .banner-small {
+      p:nth-child(1) {
+        font-family: "Space Mono", monospace;
+        font-weight: 700;
+        font-size: 22px;
+      }
+      p:nth-child(2) {
+        font-family: "Work Sans", sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+      }
+    }
+    /* end reponsie banner */
+  }
+  .trending-cards {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
+    padding: 0px 30px 40px 30px;
+
+    .trending-card:nth-child(2) {
+      display: none;
+    }
+    .trending-card:nth-child(3) {
+      display: none;
+    }
+  }
+  .creator {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: auto; */
+    grid-template-areas:
+      "creator-title"
+      "creator-cards"
+      "creator-btn";
+    background-color: #2b2b2b;
+  }
+  .creator-title {
+    padding: 40px 30px;
+    p:nth-child(1) {
+      font-size: 28px;
+    }
+    p:nth-child(2) {
+      font-size: 16px;
+    }
+  }
+  .creator-cards {
+    grid-template-columns: 1fr;
+    padding: 0px 30px 40px 30px;
+    .stt {
+      top: 12%;
+      left: 12%;
+    }
+  }
+  .creator-card-name {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0;
+  }
+  .creator-btn {
+    width: 86%;
+    margin-bottom: 40px;
+  }
+
+  .categories > p {
+    font-size: 28px;
+    padding: 40px 30px;
+  }
+  .categories-cate {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+  .discover {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+      "discover-title "
+      "discover-cards"
+      "discover-btn";
+    align-items: center;
+    justify-content: center;
+    padding: 40px 30px;
+  }
+  .discover-title {
+    justify-content: center;
+    padding-left: 70px;
+  }
+  .discover-title-small {
+    p:nth-child(1) {
+      font-size: 28px;
+    }
+  }
+  .discover-cards {
+    grid-area: discover-cards;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 140px;
+  }
+  .discover-btn {
+    width: 60%;
+
+    margin-left: 143px;
+  }
+
+  .magic-cards {
+    display: grid;
+    align-content: start;
+    grid-template-areas:
+      "magic-name"
+      " btn-time"
+      "btn-nft ";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 70px 40px 69px 40px;
+    z-index: 2;
+  }
+  .countdown-box p {
+    text-align: left;
+    padding-left: 20px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #e5e5e5;
+  }
+  .magic-name > p {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 600;
+    font-size: 38px;
+    padding: 30px 0;
+  }
+
+  .btn-nft {
+    margin-top: 40px;
+    width: 100%;
+  }
+
+  .work-title {
+    width: 100%;
+    padding: 40px 30px;
+  }
+  .work-cards {
+    height: auto;
+    width: 100%;
+    padding: 0px 30px 40px 30px;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1.3fr 2fr;
+    align-items: center;
+    background-color: #3b3b3b;
+    border-radius: 20px;
+    justify-content: center;
+  }
+  .card-name {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    p:nth-child(1) {
+      padding: 0px 10px 10px 0px;
+    }
+    p:nth-child(2) {
+      font-family: "Work Sans", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+
+  .join-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 40px 30px;
+  }
+  .join-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #2b2b2b;
+    border-radius: 20px;
+    img {
+      width: 100%;
+      padding: 0;
+    }
+    form {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      background-color: #fff;
+      border-radius: 20px;
+
+      button {
+        width: 100%;
+        height: 60px;
+        border: none;
+        border-radius: 20px;
+        background-color: #a259ff;
+        font-family: "Work Sans", sans-serif;
+        padding: 20px 0px;
+        margin-top: 10px;
+      }
+    }
+  }
+  .join-card-name {
+    p:nth-child(1) {
+      width: 80%;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 600;
+      font-size: 28px;
+      line-height: 120%;
+      padding-bottom: 10px;
+    }
+    p:nth-child(2) {
+      width: 80%;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 2px;
+      line-height: 160%;
+      padding-bottom: 40px;
+    }
+  }
 }
