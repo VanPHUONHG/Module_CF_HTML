@@ -30,6 +30,29 @@ body {
   bottom: 0;
 }
 /* end banner */
+/* end join */
+#btnUp {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background-color: #a259ff;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Khi hiện */
+#btnUp.show {
+  opacity: 1;
+  visibility: visible;
+}
 /* start card-infor */
 .card-infor {
   width: 100wh;
@@ -232,6 +255,20 @@ button:hover {
   display: flex;
   justify-content: space-between;
   padding: 0px 30px 25px 30px;
+}
+.price-item > .highest {
+  p:nth-child(1) {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-size: 12px;
+    color: #858584;
+  }
+  p:nth-child(2) {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-size: 16px;
+    color: #fff;
+  }
 }
 @media screen and (max-width: 992px) {
   .card-infor {

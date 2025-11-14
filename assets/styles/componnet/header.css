@@ -76,7 +76,6 @@ nav > ul > li:nth-child(4) {
   }
 }
 
-/* Mobile lớn (2 cột) */
 @media screen and (max-width: 768px) {
   nav ul {
     display: none;
