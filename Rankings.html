@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Creators</title>
+    <link rel="stylesheet" href="./assets/styles/componnet/header.css" />
+    <link rel="stylesheet" href="./assets/styles/componnet/footer.css" />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #2b2b2b;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      main.top-creators {
+        flex: 1;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        padding: 60px 40px;
+      }
+
+      .section-header {
+        margin-bottom: 130px;
+      }
+
+      .section-header h2 {
+        font-size: 52px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+
+      .section-header p {
+        color: white;
+        font-size: 22px;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 178px;
+        margin-bottom: 30px;
+        margin-left: 88px;
+      }
+
+      .tabs button {
+        background: none;
+        border: none;
+        color: #aaa;
+        font-size: 22px;
+        cursor: pointer;
+        position: relative;
+        padding-bottom: 6px;
+        transition: color 0.2s ease;
+      }
+
+      .tabs button::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: #fff;
+        transition: width 0.25s ease;
+      }
+
+      .tabs button:hover::after,
+      .tabs button.active::after {
+        width: 100%;
+      }
+
+      .tabs button.active {
+        color: #fff;
+      }
+
+      .table {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .table-header,
+      .table-row {
+        display: grid;
+        grid-template-columns: 60px 2fr 1fr 1fr 1fr;
+        align-items: center;
+        padding: 14px 24px;
+        border-radius: 12px;
+      }
+
+      .table-header {
+        color: #777;
+        font-size: 13px;
+      }
+
+      .table-row {
+        background: #2a2a2a;
+        transition: background 0.2s ease;
+      }
+
+      .table-row span:first-child {
+        background: #333;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .table-row:hover {
+        background: #333;
+      }
+
+      .table-row .artist {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .table-row .artist img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .green {
+        color: #00ff7f;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href=""><img src="./imgs/Storefront.png" alt="" /></a>
+        <a href="">NFT Marketplace</a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Marketplace</a></li>
+          <li><a href="#">Rankings</a></li>
+          <li><a href="./ConnectWallet.html">Connect a wallet</a></li>
+          <li><a href="#">Sign Up</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="top-creators">
+      <div class="section-header">
+        <h2>Top Creators</h2>
+        <p>Check out top ranking NFT artists on the NFT Marketplace.</p>
+      </div>
+
+      <div class="tabs">
+        <button class="active">Today</button>
+        <button>This Week</button>
+        <button>This Month</button>
+        <button>All Time</button>
+      </div>
+
+      <div class="table">
+        <div class="table-header">
+          <span>#</span>
+          <span>Artist</span>
+          <span>Change</span>
+          <span>NFTs Sold</span>
+          <span>Volume</span>
+        </div>
+
+        <div class="table-row">
+          <span>1</span>
+          <div class="artist">
+            <img src="imgs/Avatar HHHH.png" alt="avatar" />
+            <span>Jaydon Ekstrom Bothman</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>2</span>
+          <div class="artist">
+            <img src="imgs/Avatar (ok).png" alt="avatar" />
+            <span>Ruben Carder</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>3</span>
+          <div class="artist">
+            <img src="imgs/Avatar (2).png" alt="avatar" />
+            <span>Alfredo Septimus</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>4</span>
+          <div class="artist">
+            <img src="imgs/Artist Avatar.png" alt="avatar" />
+            <span>Davis Franci</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>5</span>
+          <div class="artist">
+            <img src="imgs/Artist Avatar (1).png" alt="avatar" />
+            <span>Livia Rosser</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>6</span>
+          <div class="artist">
+            <img src="imgs/Asset 12 2 (1).png" alt="avatar" />
+            <span>imgs/Asset 12 2 (1).</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>7</span>
+          <div class="artist">
+            <img src="imgs/Avatar Placeholder.png" alt="avatar" />
+            <span>Phillip Lipshutz</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>8</span>
+          <div class="artist">
+            <img src="imgs/Artist Avatar (2).png" alt="avatar" />
+            <span>Maria Rosser</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>9</span>
+          <div class="artist">
+            <img src="imgs/Avatar (4).png" alt="avatar" />
+            <span>Kianna Stanton</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>10</span>
+          <div class="artist">
+            <img src="imgs/Avatar Placeholder (1).png" alt="avatar" />
+            <span>Angel Lubin</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>11</span>
+          <div class="artist">
+            <img src="imgs/Avatar.png" alt="avatar" />
+            <span>Allison Torff</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>12</span>
+          <div class="artist">
+            <img src="imgs/Avatar Placeholder (2).png" alt="avatar" />
+            <span>Davis Workman</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>13</span>
+          <div class="artist">
+            <img src="imgs/Asset 12 2.png" alt="avatar" />
+            <span>Lindsey Lipshutz</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>14</span>
+          <div class="artist">
+            <img src="imgs/logoartrist.png" alt="avatar" />
+            <span>Randy Carder</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>15</span>
+          <div class="artist">
+            <img src="imgs/Avatar (1).png" alt="avatar" />
+            <span>Lydia Culhane</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>16</span>
+          <div class="artist">
+            <img src="imgs/Avatar Placeholder (3).png" alt="avatar" />
+            <span>Rayna Bator</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>17</span>
+          <div class="artist">
+            <img src="imgs/Asset 12 2 (1).png" alt="avatar" />
+            <span>Jocelyn Westervelt</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>18</span>
+          <div class="artist">
+            <img src="imgs/Avatar HHHH.png" alt="avatar" />
+            <span>Marilyn Torff</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>19</span>
+          <div class="artist">
+            <img src="imgs/Avatar Placeholder (1).png" alt="avatar" />
+            <span>Skylar Levin</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+
+        <div class="table-row">
+          <span>20</span>
+          <div class="artist">
+            <img src="imgs/Avatar (2).png" alt="avatar" />
+            <span>Terry Dorwart</span>
+          </div>
+          <span class="green">+1.41%</span>
+          <span>602</span>
+          <span>12.4 ETH</span>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="menu-footer">
+        <div class="item-footer1">
+          <div class="item">
+            <img src="./imgs/Storefront.png" alt="" />
+            <a href="">NFT Marketplace</a>
+          </div>
+          <div>
+            <p>NFT marketplace UI created with Anima for Figma.</p>
+            <p>Join our community</p>
+          </div>
+          <ul>
+            <li>
+              <a href="https://discord.com/invite/eQxkYTNxSp"
+                ><img src="./imgs/DiscordLogo.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCXqr0Ca-b73rU9zcpSBJ5cw"
+                ><img src="./imgs/YoutubeLogo.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/animaapp?lang=en"
+                ><img src="./imgs/TwitterLogo.png" alt=""
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/animaapp/?hl=en"
+                ><img src="./imgs/InstagramLogo.png" alt=""
+              /></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="item-footer2">
+          <h2>Explore</h2>
+          <ul>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">Rankings</a></li>
+            <li><a href="#">Connect a wallet</a></li>
+          </ul>
+        </div>
+
+        <div class="item-footer3">
+          <h2>Join our weekly digest</h2>
+          <p>Get exclusive promotions & updates straight to your inbox.</p>
+          <form action="">
+            <input type="text" placeholder="Enter your email here" />
+            <button>Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="line"></div>
+      <p>Ⓒ NFT Market. Use this template freely.</p>
+    </footer>
+  </body>
+</html>

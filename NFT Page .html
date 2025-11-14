@@ -17,18 +17,247 @@
         margin: 0;
         padding: 0;
         font-family: "Arial", sans-serif;
-        background-color: #000;
+        background: linear-gradient(135deg, #000 0%, #1a1a2e 50%, #16213e 100%);
+        background-attachment: fixed;
         color: white;
+        overflow-x: hidden;
+        position: relative;
       }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(139, 92, 246, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(139, 92, 246, 0.05) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+        z-index: -1;
+        animation: nebulaGlow 15s ease-in-out infinite alternate;
+      }
+
+      @keyframes nebulaGlow {
+        0% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1.1);
+        }
+      }
+
       main {
         display: flex;
         flex-direction: column;
       }
+      /* Basic header styles (in case external CSS doesn't cover responsive) */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        animation: slideDown 1s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      header:hover {
+        box-shadow: 0 8px 40px rgba(139, 92, 246, 0.3);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo img {
+        height: 40px;
+        transition: transform 0.3s ease;
+      }
+      .logo:hover img {
+        transform: scale(1.1) rotate(5deg);
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 20px;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #8b5cf6, #a855f7);
+        transition: width 0.3s ease;
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+      nav a:hover {
+        color: #8b5cf6;
+        text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+      }
+      /* Basic footer styles (in case external doesn't cover) */
+      footer {
+        background: #3b3b3b;
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+        animation: slideUp 1s ease-out 0.5s both;
+      }
+
+      @keyframes slideUp {
+        from {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      footer:hover {
+        box-shadow: 0 -8px 40px rgba(139, 92, 246, 0.3);
+      }
+      .menu-footer {
+        display: flex;
+        justify-content: space-between;
+        max-width: 1200px;
+      }
+      .item-footer1,
+      .item-footer2,
+      .item-footer3 {
+        flex: 1;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out forwards;
+      }
+      .item-footer1 {
+        animation-delay: 0.2s;
+      }
+      .item-footer2 {
+        animation-delay: 0.4s;
+      }
+      .item-footer3 {
+        animation-delay: 0.6s;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .item-footer2 ul,
+      .item-footer1 ul {
+        list-style: none;
+        padding: 0;
+      }
+      .item-footer1 ul {
+        display: flex;
+        gap: 20px;
+      }
+      .item-footer1 ul li a img {
+        transition: transform 0.3s ease;
+      }
+      .item-footer1 ul li a:hover img {
+        transform: scale(1.2) rotate(10deg);
+      }
+      .item-footer3 form {
+        display: flex;
+        gap: 10px;
+      }
+      .item-footer3 input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+      }
+      .item-footer3 input:focus {
+        border-color: #8b5cf6;
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        outline: none;
+      }
+      .item-footer3 button {
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #8b5cf6, #a855f7);
+        border: none;
+        border-radius: 4px;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .item-footer3 button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+      }
+      .line {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 20px 40px;
+        background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+        height: 1px;
+      }
+      /* End basic footer/header */
+
       .image-section {
         position: relative;
         width: 100%;
         height: 60vh; /* Chiều cao hình ảnh cố định, có thể chỉnh */
         overflow: hidden;
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
       .container {
         position: relative;
@@ -42,17 +271,40 @@
         width: 100%;
         height: 100%;
         z-index: 1;
+        transition: transform 0.5s ease;
+      }
+      .img-logo:hover {
+        transform: scale(1.02);
       }
       .img-logo img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        filter: brightness(0.8) contrast(1.1);
+        transition: filter 0.3s ease;
+      }
+      .img-logo:hover img {
+        filter: brightness(1) contrast(1.2);
       }
       .content-section {
         padding: 50px 40px;
-        background: #2b2b2b; /* Nền đen giống overlay cũ */
+        background: linear-gradient(135deg, #2b2b2b 0%, #1a1a2e 100%);
         display: flex;
         justify-content: center;
+        position: relative;
+        z-index: 2;
+        animation: slideUpContent 1s ease-out 0.5s both;
+      }
+
+      @keyframes slideUpContent {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
       }
       .content {
         max-width: 1200px;
@@ -65,6 +317,19 @@
       .left-content {
         flex: 1;
         max-width: 600px;
+        opacity: 0;
+        animation: fadeInLeft 1s ease-out 1s both;
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
       .title {
         font-size: 4rem;
@@ -72,11 +337,33 @@
         margin: 0 0 20px 0;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
         line-height: 1.1;
+        background: linear-gradient(135deg, #fff 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 3s ease-in-out infinite;
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+      .title {
+        background-size: 200% 200%;
       }
       .mint-date {
         font-size: 30px;
         margin: 0 0 30px 0;
         opacity: 0.5;
+        transition: opacity 0.3s ease;
+      }
+      .mint-date:hover {
+        opacity: 1;
       }
       .creator {
         .creator-icon {
@@ -90,6 +377,10 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        transition: transform 0.3s ease;
+      }
+      .creator-info:hover {
+        transform: translateX(10px);
       }
 
       .creator-info img {
@@ -97,6 +388,11 @@
         height: 40px;
         border-radius: 50%;
         object-fit: cover;
+        box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+        transition: box-shadow 0.3s ease;
+      }
+      .creator-info:hover img {
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.6);
       }
 
       .creator-icon span {
@@ -123,17 +419,68 @@
         flex-direction: column;
         align-items: flex-end;
         min-width: 200px;
+        opacity: 0;
+        animation: fadeInRight 1s ease-out 1.2s both;
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
       }
       .auction-box {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 16px;
         padding: 24px;
         margin-bottom: -40px;
         text-align: center;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
         width: 235px;
         height: 220px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .auction-box::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(139, 92, 246, 0.05),
+          transparent
+        );
+        transform: rotate(45deg);
+        transition: all 0.6s ease;
+        opacity: 0;
+      }
+      .auction-box:hover::before {
+        animation: shine 0.6s ease-in-out;
+        opacity: 1;
+      }
+      @keyframes shine {
+        0% {
+          transform: translateX(-100%) translateY(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) translateY(100%) rotate(45deg);
+        }
+      }
+      .auction-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 40px rgba(139, 92, 246, 0.3);
+        border-color: #8b5cf6;
       }
       .auction-label {
         font-size: 0.9rem;
@@ -148,6 +495,18 @@
         margin: 0 0 10px 0;
         color: #fff;
         font-family: "Courier New", monospace;
+        text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
       }
       .timer-labels {
         display: flex;
@@ -175,6 +534,26 @@
         box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
         margin-top: -20px;
         align-self: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .place-bid::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+      .place-bid:hover::before {
+        left: 100%;
       }
       .place-bid:hover {
         transform: translateY(-2px);
@@ -209,12 +588,34 @@
       }
 
       .details-section {
-        background-color: #2b2b2b;
+        background: linear-gradient(135deg, #2b2b2b 0%, #1a1a2e 100%);
         color: #fff;
         font-family: Arial, sans-serif;
         padding: 50px 40px;
         display: flex;
         justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .details-section::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #8b5cf6, transparent);
+        animation: lineGlow 3s ease-in-out infinite;
+      }
+
+      @keyframes lineGlow {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
       }
 
       .details-container {
@@ -225,6 +626,8 @@
         max-width: 1200px;
         width: 100%;
         gap: 60px;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 1.5s both;
       }
 
       .details,
@@ -238,6 +641,22 @@
         margin-bottom: 15px;
         letter-spacing: 1px;
         color: #858584;
+        position: relative;
+      }
+      .details h3::after,
+      .tags h3::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background: #8b5cf6;
+        transition: width 0.3s ease;
+      }
+      .details:hover h3::after,
+      .tags:hover h3::after {
+        width: 100px;
       }
 
       .detail-item {
@@ -247,10 +666,21 @@
         margin-bottom: 12px;
         font-size: 22px;
         color: #ccc;
+        transition: all 0.3s ease;
+        padding: 5px 0;
+      }
+      .detail-item:hover {
+        color: #8b5cf6;
+        transform: translateX(10px);
       }
 
       .detail-item i {
         font-size: 22px;
+        transition: color 0.3s ease;
+      }
+      .detail-item:hover i {
+        color: #8b5cf6;
+        text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
       }
 
       .tags-list {
@@ -261,7 +691,8 @@
       }
 
       .tag {
-        background-color: #3a3a3a;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
         padding: 10px 20px;
         border-radius: 30px;
         font-size: 16px;
@@ -269,17 +700,415 @@
         color: #fff;
         text-transform: uppercase;
         transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      .tag::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+      .tag:hover::before {
+        left: 100%;
       }
       .tag:hover {
-        background-color: #8b5cf6;
+        background: linear-gradient(135deg, #8b5cf6, #a855f7);
         cursor: pointer;
         transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
       }
 
       @media (max-width: 768px) {
         .details-container {
           flex-direction: column;
           gap: 30px;
+        }
+      }
+
+      .artist-section {
+        background: linear-gradient(135deg, #2b2b2b 0%, #1a1a2e 100%);
+        padding: 40px;
+        color: white;
+        position: relative;
+      }
+
+      .artist-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        padding: 0 115px;
+        opacity: 0;
+        animation: fadeInUp 1s ease-out 2s both;
+      }
+
+      .artist-header h2 {
+        font-size: 36px;
+        font-weight: 600;
+        color: #fff;
+        background: linear-gradient(135deg, #fff 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .artist-btn {
+        border: 2px solid #a259ff;
+        background: transparent;
+        color: white;
+        border-radius: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .artist-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(162, 89, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .artist-btn:hover::before {
+        left: 100%;
+      }
+
+      .artist-btn i {
+        margin-right: 8px;
+        color: #a259ff;
+        transition: color 0.3s ease;
+      }
+
+      .artist-btn:hover {
+        background-color: #a259ff;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(162, 89, 255, 0.4);
+      }
+      .artist-btn:hover i {
+        color: white;
+      }
+
+      .cards {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 60px 115px 80px 115px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 30px;
+        justify-content: center;
+        background-color: transparent;
+        opacity: 0;
+        animation: staggerIn 1s ease-out forwards;
+      }
+
+      @keyframes staggerIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .cards .card-item:nth-child(1) {
+        animation-delay: 2.1s;
+      }
+      .cards .card-item:nth-child(2) {
+        animation-delay: 2.2s;
+      }
+      .cards .card-item:nth-child(3) {
+        animation-delay: 2.3s;
+      }
+      .cards .card-item:nth-child(4) {
+        animation-delay: 2.4s;
+      }
+      .cards .card-item:nth-child(5) {
+        animation-delay: 2.5s;
+      }
+      .cards .card-item:nth-child(6) {
+        animation-delay: 2.6s;
+      }
+      .cards .card-item:nth-child(7) {
+        animation-delay: 2.7s;
+      }
+      .cards .card-item:nth-child(8) {
+        animation-delay: 2.8s;
+      }
+      .cards .card-item:nth-child(9) {
+        animation-delay: 2.9s;
+      }
+      .card-item {
+        background: rgba(43, 43, 43, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        object-fit: cover;
+        color: white;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      .card-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(139, 92, 246, 0.1) 50%,
+          transparent 70%
+        );
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      .card-item:hover::before {
+        opacity: 1;
+        animation: cardShine 0.6s ease-in-out;
+      }
+      @keyframes cardShine {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      .card-item > img {
+        width: 100%;
+        height: 390px;
+        border-radius: 20px 20px 0 0;
+        transition: transform 0.4s ease;
+      }
+      .card-item:hover > img {
+        transform: scale(1.05);
+      }
+      .card-item > h3 {
+        width: 100%;
+        padding: 20px 30px 0px 30px;
+        font-family: "Work Sans", sans-serif;
+        font-weight: 600;
+        font-size: 22px;
+        transition: color 0.3s ease;
+      }
+      .card-item:hover > h3 {
+        color: #8b5cf6;
+      }
+      .avatar-item {
+        display: flex;
+        max-width: 100%;
+        align-items: center;
+        gap: 12px;
+        padding: 5px 30px 25px 30px;
+      }
+      .avatar-item > img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+      }
+      .avatar-item:hover > img {
+        transform: scale(1.2);
+      }
+      .price-item {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0px 30px 25px 30px;
+      }
+      .price-item div {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .price-item p {
+        margin: 0;
+        font-size: 14px;
+        transition: color 0.3s ease;
+      }
+      .price-item .highest p:first-child {
+        opacity: 0.7;
+      }
+      .price-item:hover p {
+        color: #8b5cf6;
+      }
+      .card-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        border-color: #8b5cf6;
+      }
+      @media screen and (max-width: 992px) {
+        .cards {
+          grid-template-columns: repeat(3, 1fr);
+          padding: 60px 77px 80px 77px;
+        }
+        .artist-header {
+          padding: 0 77px;
+        }
+        .content-section {
+          padding: 40px 30px;
+        }
+        .details-section {
+          padding: 40px 30px;
+        }
+      }
+
+      /* Mobile lớn (2 cột) */
+      @media screen and (max-width: 768px) {
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+          padding: 40px 20px 60px 20px;
+          gap: 20px;
+        }
+        .artist-header {
+          padding: 0 20px;
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+        .card-item > img {
+          height: 250px;
+        }
+        .card-item > h3 {
+          font-size: 18px;
+          padding: 15px 20px 0 20px;
+        }
+        .avatar-item {
+          padding: 0 20px 15px 20px;
+        }
+        .price-item {
+          padding: 0 20px 15px 20px;
+        }
+        .title {
+          font-size: 2.5rem;
+        }
+        .mint-date {
+          font-size: 1.2rem;
+        }
+        .description-text {
+          font-size: 16px;
+        }
+        .timer-labels span {
+          min-width: 60px;
+          font-size: 10px;
+        }
+        .timer {
+          font-size: 2rem;
+        }
+        .detail-item {
+          font-size: 18px;
+        }
+        .detail-item i {
+          font-size: 18px;
+        }
+        header {
+          padding: 0 20px;
+          flex-wrap: wrap;
+        }
+        nav ul {
+          gap: 10px;
+        }
+        .menu-footer {
+          flex-direction: column;
+          gap: 30px;
+          padding: 0 20px;
+        }
+        .item-footer1 ul {
+          justify-content: center;
+        }
+        .item-footer3 form {
+          flex-direction: column;
+        }
+        .line {
+          margin: 20px 20px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .cards {
+          grid-template-columns: repeat(1, 1fr);
+          padding: 20px 10px 40px 10px;
+          gap: 15px;
+        }
+        .artist-header {
+          padding: 0 10px;
+        }
+        .image-section {
+          height: 40vh;
+        }
+        .content-section {
+          padding: 20px 15px;
+        }
+        .details-section {
+          padding: 30px 15px;
+        }
+        .title {
+          font-size: 2rem;
+        }
+        .mint-date {
+          font-size: 1rem;
+        }
+        .description-text {
+          font-size: 14px;
+        }
+        .auction-box {
+          width: 100%;
+          height: auto;
+          padding: 20px;
+        }
+        .tags-list {
+          justify-content: center;
+        }
+        .tag {
+          font-size: 14px;
+          padding: 8px 16px;
+        }
+        header {
+          flex-direction: column;
+          gap: 10px;
+          padding: 10px 15px;
+        }
+        .logo {
+          justify-content: center;
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          gap: 5px;
+        }
+        .menu-footer {
+          padding: 0 15px;
+        }
+        .line {
+          margin: 20px 15px;
         }
       }
     </style>
@@ -384,6 +1213,179 @@
           </div>
         </div>
       </section>
+
+      <section class="artist-section">
+        <div class="artist-header">
+          <h2>More From This Artist</h2>
+          <button class="artist-btn">
+            <i class="fa-solid fa-arrow-right"></i> Go To Artist Page
+          </button>
+        </div>
+        <div class="cards">
+          <div class="card-item">
+            <img src="imgs/Image.png" alt="" />
+            <h3>Foxy Life</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/Image (1).png" alt="" />
+            <h3>Cat from future</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/Primary Photo Placeholder.png" alt="" />
+            <h3>Psycho Dog</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/card4.png" alt="" />
+            <h3>Designer Bear</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/Image Placeholder.png" alt="" />
+            <h3>Dancing Robot 0375</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/card6.png" alt="" />
+            <h3>Dancing Robot 0356</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/Image (2).png" alt="" />
+            <h3>Dancing Robot 0321</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/Image (3).png" alt="" />
+            <h3>Dancing Robot 0512</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-item">
+            <img src="imgs/Image Placeholder (2).png" alt="" />
+            <h3>Dancing Robot 0024</h3>
+            <div class="avatar-item">
+              <img src="imgs/Avatar (4).png" alt="" />
+              <p>Orbitian</p>
+            </div>
+            <div class="price-item">
+              <div class="">
+                <p>Price</p>
+                <p>1.63 ETH</p>
+              </div>
+              <div class="highest">
+                <p>Highest Bid</p>
+                <p>0.33 wETH</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <footer>
       <div class="menu-footer">
@@ -439,5 +1441,53 @@
       <div class="line"></div>
       <p>Ⓒ NFT Market. Use this template freely.</p>
     </footer>
+    <script>
+      (function () {
+        const endUtc = new Date("2025-11-10T05:00:00Z").getTime();
+
+        let intervalId;
+
+        function updateTimer() {
+          const nowUtc = Date.now();
+          let diff = endUtc - nowUtc;
+
+          if (diff <= 0) {
+            document.querySelector(".timer").textContent = "00:00:00";
+            if (intervalId) {
+              clearInterval(intervalId);
+            }
+            return;
+          }
+
+          const hours = Math.floor(diff / (1000 * 60 * 60));
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          document.querySelector(".timer").textContent = `${hours
+            .toString()
+            .padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds
+            .toString()
+            .padStart(2, "0")}`;
+        }
+
+        updateTimer();
+
+        intervalId = setInterval(updateTimer, 1000);
+
+        document
+          .querySelector(".place-bid")
+          .addEventListener("click", function () {
+            if (intervalId) {
+              clearInterval(intervalId);
+              intervalId = null;
+            }
+            document.querySelector(".timer").textContent = "00:00:00";
+            this.textContent = "Bid Placed";
+            this.disabled = true;
+            this.style.background = "linear-gradient(135deg, #10b981, #059669)";
+            this.style.boxShadow = "0 4px 15px rgba(16, 185, 129, 0.4)";
+          });
+      })();
+    </script>
   </body>
 </html>
