@@ -51,3 +51,39 @@ nav > ul > li:nth-child(4) {
   justify-content: space-evenly;
   border-radius: 20px;
 }
+@media screen and (max-width: 992px) {
+  header {
+    padding: 0 20px;
+    height: 80px;
+  }
+
+  .logo > a:nth-child(2) {
+    font-size: 18px;
+  }
+
+  nav ul {
+    width: 500px;
+    gap: 5px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  nav > ul > li:nth-child(4) {
+    width: 130px;
+    height: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  nav ul {
+    display: none;
+  }
+}
